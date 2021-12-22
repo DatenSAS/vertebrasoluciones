@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="inherited_helpdesk_ticket_form" model="ir.ui.view">
+      <field name="name">helpdesk.ticket.form</field>
+      <field name="model">helpdesk.ticket</field>
+      <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='partner_id']" position="after">
+               <field name="cliente_id" invisible="1"/>
+               <field name="contacto" domain="[('is_company','=',False),('parent_id.id','=',cliente_id)]"/>
+               <field name="punto"/>
+               <field name="punto_id" invisible="1"/>
+               <field name="cuenta"/>
+               <field name="grupo"/>
+          </xpath>
+          <xpath expr="//field[@name='cuenta']" position="attributes">
+               <attribute name = "domain">[('punto', '=', punto_id)]</attribute>
+          </xpath>
+          <xpath expr="//field[@name='cuenta']" position="after">
+               <field name="prestador"/>
+          </xpath>
+          <xpath expr="//field[@name='ticket_type_id']" position="attributes">
+              <attribute name = "readonly">True</attribute>
+          </xpath>
+          <xpath expr="//field[@name='user_id']" position="after">
+               <field name="proceso_help" attrs="{'readonly': [('team_id','!=',2)]}"/>
+               <field name="proceso_id" invisible="1"/>
+               <field name="categoria_help" domain = "[('proceso_id','=',proceso_id)]"/>
+               <field name="categoria_id" invisible="1"/>
+               <field name="subcategoria_help" domain = "[('categoria','=',categoria_id)]"/>
+          </xpath>
+          <xpath expr="//field[@name='partner_phone']" position="after">
+               <field name="info_adicional" attrs="{'invisible': ['|',('team_id','!=', 1),('stage_id','in', [1,5,9])]}"/>
+               <field name="escalar_prestador" attrs="{'invisible': ['|',('team_id','!=', 1),('stage_id','in', [1,5,9])]}"/>
+               <field name="sin_radicado" attrs="{'invisible': ['|',('team_id','!=', 1),('stage_id','in', [1,5,9,10,11])]}"/>
+               <field name="fecha_escalamiento_nr" attrs="{'invisible': [('sin_radicado','=', False)]}"/>
+          </xpath>
+          <xpath expr="//field[@name='partner_phone']" position="after">
+               <field name="medio"/>
+          </xpath>
+          <xpath expr="//field[@name='partner_id']" position="attributes">
+               <attribute name = "domain">[('category_id.id', '=', 1),('is_company', '=', True)]</attribute>
+          </xpath>
+          <xpath expr="//field[@name='punto']" position="attributes">
+               <attribute name = "domain">[('cliente', '=', cliente_id)]</attribute>
+          </xpath>
+          <xpath expr="//field[@name='punto']" position="after">
+               <field name="servicio" attrs="{'invisible': [('team_id','!=', 1)]}"/>
+          </xpath>
+          <xpath expr="//field[@name='description']" position="after">
+               <field name="solucion" placeholder="Solución"/>
+          </xpath>
+          <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+              <notebook>
+                <page string="Datos Solicitante" attrs="{'invisible': [('team_id','!=', 1)]}">
+                  <group>
+                    <group>
+                      <field name="origen"/>
+                      <field name="area"/>
+                    </group>
+                  </group>
+                </page>
+                <page string="Información Adicional" attrs="{'invisible': [('info_adicional','=', False)]}">
+                  <group>
+                    <group>
+                      <field name="tipo"/>
+                      <field name="fecha_solicitud"/>
+                      <field name="fecha_recepcion"/>
+                      <field name="dias_totales"/>
+                    </group>
+                  </group>
+                </page>
+                <page string="Información Prestador" attrs="{'invisible':[('escalar_prestador','=',False)]}">
+                  <group>
+                    <group>
+                      <field name="escalado_a" domain="[('category_id', '=', 2)]"/>
+                      <field name="fecha_escalamiento"/>
+                      <field name="radicado"/>
+                      <field name="fecha_recepcion_rad"/>
+                      <field name="fecha_recepcion_res" attrs="{'invisible': [('escalar_prestador','=',False)]}"/>
+                      <field name="dias"/>
+                    </group>
+                  </group>
+                </page>
+                <page string="Continuidad de la Solicitud" attrs="{'invisible': ['|',('team_id','!=',1),('stage_id','!=',8)]}">
+                  <group>
+                    <group>
+                      <field name="cierre"/>
+                      <field name="justificacion" attrs="{'invisible': [('cierre','!=','No Concluido')]}"/>
+                      <field name="ticket_cnt"/>
+                    </group>
+                    <group>
+                      <field name="recuperado" attrs="{'invisible': [('cierre','!=','Exitoso')]}"/>
+                      <field name="moneda" invisible="1"/>
+                    </group>
+                  </group>
+                </page>
+                <page string="Justificación Rechazo" attrs="{'invisible': ['|',('team_id','!=',1),('stage_id','!=',16)]}">
+                  <group>
+                    <group>
+                      <field name="rechazado"/>
+                    </group>
+                  </group>
+                </page>
+              </notebook>
+          </xpath>
+      </field>
+    </record>
+
+    <record id='proceso_action' model='ir.actions.act_window'>
+        <field name="name">Proceso</field>
+        <field name="res_model">proceso</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id='categoria_action' model='ir.actions.act_window'>
+        <field name="name">Categoria</field>
+        <field name="res_model">categoria</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id='subcategoria_action' model='ir.actions.act_window'>
+        <field name="name">Sub Categoria</field>
+        <field name="res_model">subcategoria</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Proceso"
+              id="proceso_base_menu"
+              parent="helpdesk.helpdesk_menu_config"
+              action="proceso_action"
+              sequence="2"/>
+
+    <menuitem name="Categoria"
+              id="categoria_base_menu"
+              parent="helpdesk.helpdesk_menu_config"
+              action="categoria_action"
+              sequence="2"/>
+
+    <menuitem name="Subcategoria"
+              id="subcategoria_base_menu"
+              parent="helpdesk.helpdesk_menu_config"
+              action="subcategoria_action"
+              sequence="2"/>
+</odoo>

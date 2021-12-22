@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='grupo_action' model='ir.actions.act_window'>
+        <field name="name">Grupo</field>
+        <field name="res_model">grupo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id='punto_action' model='ir.actions.act_window'>
+        <field name="name">Punto</field>
+        <field name="res_model">punto</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id='cuenta_action' model='ir.actions.act_window'>
+        <field name="name">Cuenta</field>
+        <field name="res_model">cuenta</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Grupo"
+              id="grupo_base_menu"
+              parent="contacts.menu_contacts"
+              action="grupo_action"
+              sequence="2"/>
+
+    <menuitem name="Punto"
+              id="punto_base_menu"
+              parent="contacts.menu_contacts"
+              action="punto_action"
+              sequence="2"/>
+
+    <menuitem name="Cuenta"
+              id="cuenta_base_menu"
+              parent="contacts.menu_contacts"
+              action="cuenta_action"
+              sequence="2"/>
+
+    <record id="grupo_view_form" model="ir.ui.view">
+        <field name="name">Grupo Form</field>
+        <field name="model">grupo</field>
+        <field name="arch" type="xml">
+            <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="cliente"/>
+                        <field name="se_id" readonly="1"/>
+                    </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="grupo_view_tree" model="ir.ui.view">
+        <field name="name">Grupo List</field>
+        <field name="model">grupo</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="cliente"/>
+                <field name="se_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="punto_view_form" model="ir.ui.view">
+        <field name="name">Punto Form</field>
+        <field name="model">punto</field>
+        <field name="arch" type="xml">
+            <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="se_id" readonly="1"/>
+                        <field name="cliente"/>
+                        <field name="grupo"/>
+                        <field name="departamento"/>
+                        <field name="ciudad"/>
+                        <field name="direccion"/>
+                        <field name="centro_costo"/>
+                        <field name="tipo_punto"/>
+                        <field name="estado"/>
+                    </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="punto_view_tree" model="ir.ui.view">
+        <field name="name">Punto List</field>
+        <field name="model">punto</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="se_id" readonly="1"/>
+                <field name="cliente"/>
+                <field name="grupo"/>
+                <field name="departamento"/>
+                <field name="ciudad"/>
+                <field name="direccion"/>
+                <field name="centro_costo"/>
+                <field name="tipo_punto"/>
+                <field name="estado"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cuenta_view_form" model="ir.ui.view">
+        <field name="name">Cuenta Form</field>
+        <field name="model">cuenta</field>
+        <field name="arch" type="xml">
+            <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="se_id" readonly="1"/>
+                        <field name="cliente"/>
+                        <field name="punto"/>
+                        <field name="servicio"/>
+                        <field name="prestador_servicio"/>
+                    </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="cuenta_view_tree" model="ir.ui.view">
+        <field name="name">Cuenta Tree</field>
+        <field name="model">cuenta</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="se_id" readonly="1"/>
+                <field name="cliente"/>
+                <field name="punto"/>
+                <field name="servicio"/>
+                <field name="prestador_servicio"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

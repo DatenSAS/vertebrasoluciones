@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='contrato_action' model='ir.actions.act_window'>
+        <field name="name">Contratos</field>
+        <field name="res_model">contratos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Contratos"
+              id="contrato_base_menu"
+              parent="contacts.menu_contacts"
+              action="contrato_action"
+              sequence="2"/>
+
+    <record id="grupo_view_form" model="ir.ui.view">
+        <field name="name">Contrato Form</field>
+        <field name="model">contratos</field>
+        <field name="arch" type="xml">
+            <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="cliente" domain="[('category_id.id','=',1)]"/>
+                        <field name="activo"/>
+                    </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="grupo_view_tree" model="ir.ui.view">
+        <field name="name">Contrato List</field>
+        <field name="model">contratos</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="cliente"/>
+                <field name="activo"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
