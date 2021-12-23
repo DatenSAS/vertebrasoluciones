@@ -35,8 +35,8 @@
                             <group>
                                 <field name="objeto"/>
                                 <field name="cliente"/>
-                                <label string="Inicio/Terminación" for="fecha_inicio"/>
-                                <!--div class="o_row">
+                                <!--label string="Inicio/Terminación" for="fecha_inicio"/>
+                                <div class="o_row">
                                     <field name="fecha_inicio" widget="daterange" options="{'related_end_date': 'fecha_final'}"/>
                                     <span> a </span>
                                     <field name="fecha_final" widget="daterange" options="{'related_start_date': 'fecha_inicio'}"/>
