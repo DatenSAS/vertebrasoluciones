@@ -35,12 +35,12 @@
                             <group>
                                 <field name="objeto"/>
                                 <field name="cliente"/>
-                                <!--label string="Inicio/Terminación" for="fecha_inicio"/>
+                                <label string="Inicio/Terminación" for="fecha_inicio"/>
                                 <div class="o_row">
                                     <field name="fecha_inicio" widget="daterange" options="{'related_end_date': 'fecha_final'}"/>
                                     <span> a </span>
                                     <field name="fecha_final" widget="daterange" options="{'related_start_date': 'fecha_inicio'}"/>
-                                </div-->
+                                </div>
                             </group>
                             <group>
                                 <field name="responsable" widget="many2one_avatar_user"/>
@@ -53,11 +53,11 @@
                             </group>
                         </group>
                     </sheet>
-                    <!--div class="oe_chatter" name="oe_chatter">
+                    <div class="oe_chatter" name="oe_chatter">
                         <field name="message_follower_ids"/>
                         <field name="message_ids"/>
                         <field name="activity_ids"/>
-                    </div-->
+                    </div>
             </form>
         </field>
     </record>
