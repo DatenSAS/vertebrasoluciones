@@ -95,7 +95,7 @@
               <field name="color"/>
               <field name="responsable" widget="many2one_avatar_user"/>
               <field name="moneda"/>
-              <progressbar field="kanban_state" colors="{'normal': 'muted', 'done': 'success', 'blocked': 'danger'}" sum_field="valor_final"/>
+              <progressbar field="kanban_state" colors="{'normal': 'muted', 'done': 'success', 'blocked': 'danger'}" sum_field="valor_total"/>
               <templates>
                 <t t-name="kanban-box">
                   <div class="o_kanban_record oe_kanban_global_click o_kanban_record_has_image_fill" color="color">
@@ -121,7 +121,7 @@
                       <div class="o_kanban_record_body" name="studio_auto_kanban_body"/>
                       <div class="o_kanban_record_bottom" name="studio_auto_kanban_bottom">
                         <div class="oe_kanban_bottom_left" name="studio_auto_kanban_bottom_left">
-                          <field name="valor_final" widget="monetary" options="{'currency_field': 'x_studio_currency_id'}"/>
+                          <field name="valor_total" widget="monetary" options="{'currency_field': 'x_studio_currency_id'}"/>
                         </div>
                         <div class="oe_kanban_bottom_right" name="studio_auto_kanban_bottom_right">
                           <field name="kanban_state" widget="state_selection"/>
