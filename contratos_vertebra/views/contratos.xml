@@ -53,6 +53,32 @@
                                 <field name="moneda" invisible="1"/>
                             </group>
                         </group>
+                        <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+                            <notebook>
+                                <page string="Alcance">
+                                  <group>
+                                    <group>
+                                      <field name="alcance" nolabel="1"/>
+                                    </group>
+                                  </group>
+                                </page>
+                                <page string="Verificaciones">
+                                  <group>
+                                    <group>
+                                      <field name="contrato"/>
+                                      <field name="polizas"/>
+                                      <field name="oferta_tecnica"/>
+                                      <field name="anexos"/>
+                                    </group>
+                                    <group>
+                                      <field name="matriz"/>
+                                      <field name="presupuesto"/>
+                                      <field name="informe"/>
+                                    </group>
+                                  </group>
+                                </page>
+                            </notebook>
+                        </xpath>
                     </sheet>
                     <div class="oe_chatter" name="oe_chatter">
                         <field name="message_follower_ids"/>
