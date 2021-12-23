@@ -37,7 +37,7 @@ class Contratos_Principal(models.Model):
     informe = fields.Boolean(string='Informe de Materializacaión')
 
     prioridad = fields.Boolean()
-    color = fields.Integer()
+    color = fields.Integer(default=1)
 
 
 class Etapas (models.Model):
