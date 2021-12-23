@@ -57,9 +57,7 @@
                             <notebook>
                                 <page string="Alcance">
                                   <group>
-                                    <group>
                                       <field name="alcance" nolabel="1"/>
-                                    </group>
                                   </group>
                                 </page>
                                 <page string="Verificaciones">
