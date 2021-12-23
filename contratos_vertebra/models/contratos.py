@@ -36,6 +36,9 @@ class Contratos_Principal(models.Model):
     presupuesto = fields.Boolean(string='Presupuesto General Inicial')
     informe = fields.Boolean(string='Informe de Materializacaión')
 
+    prioridad = fields.Boolean()
+    color = fields.Integer()
+
 
 class Etapas (models.Model):
     _name = 'etapas'
