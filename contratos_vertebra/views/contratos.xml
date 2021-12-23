@@ -87,7 +87,7 @@
         </field>
     </record>
 
-    <!--record id="contrato_view_kanban" model="ir.ui.view">
+    <record id="contrato_view_kanban" model="ir.ui.view">
        <field name="name">contratos.kanban.view</field>
        <field name="model">contratos.principal</field>
        <field name="arch" type="xml">
@@ -96,7 +96,7 @@
               <field name="responsable" widget="many2one_avatar_user"/>
               <field name="moneda"/>
               <progressbar field="kanban_state" colors="{'normal': 'muted', 'done': 'success', 'blocked': 'danger'}" sum_field="valor_total"/>
-              <templates>
+              <!--templates>
                 <t t-name="kanban-box">
                   <div class="o_kanban_record oe_kanban_global_click o_kanban_record_has_image_fill" color="color">
                     <div class="o_kanban_record_details">
@@ -134,8 +134,8 @@
                     </div>
                   </div>
                 </t>
-              </templates>
+              </templates-->
           </kanban>
        </field>
-    </record-->
+    </record>
 </odoo>
