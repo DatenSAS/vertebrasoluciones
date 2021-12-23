@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='prorrogas_action' model='ir.actions.act_window'>
+        <field name="name">Prorrogas</field>
+        <field name="res_model">prorrogas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Prorrogas"
+              id="prorrogas_base_menu_1"
+              parent="contratos_vertebra.contratos_base_menu_0"
+              action="prorrogas_action"
+              sequence="7"/>
+
+    <record id="prorrogas_view_form" model="ir.ui.view">
+        <field name="name">Prorrogas</field>
+        <field name="model">prorrogas</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" required="1" placeholder="Prorroga"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="contrato"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter" name="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+</odoo>

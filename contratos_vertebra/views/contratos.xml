@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='contratos_action' model='ir.actions.act_window'>
+        <field name="name">Contratos</field>
+        <field name="res_model">contratos.principal</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Contratos"
+              id="contratos_base_menu_0"
+              web_icon="contratos_vertebra,static/description/icon.png"
+              sequence="10"/>
+
+    <menuitem name="Contratos"
+              id="contratos_base_menu_1"
+              parent="contratos_vertebra.contratos_base_menu_0"
+              action="contratos_action"
+              sequence="2"/>
+
+    <record id="grupo_view_form" model="ir.ui.view">
+        <field name="name">Contratos</field>
+        <field name="model">contratos.principal</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="objeto"/>
+                        <label string="Inicio/Terminación" for="fecha_inicio"/>
+                        <div class="o_row">
+                            <field name="fecha_inicio" widget="daterange" options="{'related_end_date': 'fecha_final'}"/>
+                            <span> a </span>
+                            <field name="fecha_final" widget="daterange" options="{'related_start_date': 'fecha_inicio'}"/>
+                        </div>
+                    </group>
+                    <group>
+
+                    </group>
+
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
