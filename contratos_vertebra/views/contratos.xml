@@ -91,7 +91,8 @@
        <field name="name">contratos.kanban.view</field>
        <field name="model">contratos.principal</field>
        <field name="arch" type="xml">
-          <kanban default_group_by="etapas" default_order="prioridad desc">
+          <!--kanban default_group_by="etapas" default_order="prioridad desc"-->
+          <kanban>
               <field name="color"/>
               <!--field name="responsable" widget="many2one_avatar_user"/>
               <field name="moneda"/>
