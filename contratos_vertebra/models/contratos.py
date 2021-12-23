@@ -11,6 +11,10 @@ class Contratos_Principal(models.Model):
     fecha_inicio =fields.Date(string = 'Fecha de Inicio')
     fecha_final = fields.Date(string='Fecha Final')
     etapas = fields.Many2one('etapas', string='Etapas')
+    kanban_state = fields.Selection(
+        [('normal', 'En Progreso'), ('done', 'Hecho'),
+         ('blocked','Bloqueada')]
+    )
     cliente = fields.Many2one('res.partner', string='Cliente')
     responsable = fields.Many2one('res.users',string='Responsable')
     valor_inicial =fields.Monetary(string='Valor Inicial', currency_field='moneda')
