@@ -87,7 +87,7 @@
         </field>
     </record>
 
-    <record id="contrato_view_kanban" model="ir.ui.view">
+    <!--record id="contrato_view_kanban" model="ir.ui.view">
        <field name="name">contratos.kanban.view</field>
        <field name="model">contratos.principal</field>
        <field name="arch" type="xml">
@@ -137,5 +137,5 @@
               </templates>
           </kanban>
        </field>
-    </record>
+    </record-->
 </odoo>
