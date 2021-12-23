@@ -10,7 +10,7 @@ class Contratos_Principal(models.Model):
     objeto = fields.Text(string = 'Objeto')
     fecha_inicio =fields.Date(string = 'Fecha de Inicio')
     fecha_final = fields.Date(string='Fecha Final')
-    etapas = fields.Many2one('etapas', string='Etapas')
+    etapas = fields.Many2one('etapas', string='Etapas', default= 1)
     kanban_state = fields.Selection(
         [('normal', 'En Progreso'), ('done', 'Hecho'),
          ('blocked','Bloqueada')]
