@@ -17,8 +17,8 @@
               action="contratos_action"
               sequence="2"/>
 
-    <record id="grupo_view_form" model="ir.ui.view">
-        <field name="name">Contratos</field>
+    <record id="contrato_view_form" model="ir.ui.view">
+        <field name="name">contratos.form.view</field>
         <field name="model">contratos.principal</field>
         <field name="arch" type="xml">
             <form>
@@ -87,4 +87,25 @@
         </field>
     </record>
 
+    <record id="contrato_kanban_view" model="ir.ui.view">
+       <field name="name">contratos.kanban.view</field>
+       <field name="model">contratos.principal</field>
+       <field name="arch" type="xml">
+          <kanban>
+             <field name="name"/>
+             <field name="valor_total"/>
+             <templates>
+                <t t-name="kanban-box">
+                   <div t-attf-class="oe_kanban_global_click">
+                      <div class="oe_kanban_details">
+                         <t class="o_kanban_record_title">
+                            <strong t-esc="record.name.value" />
+                         </t>
+                      </div>
+                   </div>
+                </t>
+             </templates>
+          </kanban>
+       </field>
+    </record>
 </odoo>
