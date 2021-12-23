@@ -95,6 +95,7 @@
               <field name="color"/>
               <field name="responsable" widget="many2one_avatar_user"/>
               <field name="moneda"/>
+              <field name="kanban_state"/>
               <progressbar field="kanban_state" colors="{'normal': 'muted', 'done': 'success', 'blocked': 'danger'}"/>
               <templates>
                 <t t-name="kanban-box">
