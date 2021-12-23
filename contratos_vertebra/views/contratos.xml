@@ -90,13 +90,14 @@
     <record id="contrato_view_kanban" model="ir.ui.view">
        <field name="name">contratos.kanban.view</field>
        <field name="model">contratos.principal</field>
+       <field name="priority" eval="100"/>
        <field name="arch" type="xml">
           <kanban default_group_by="etapas" default_order="prioridad desc">
               <field name="color"/>
               <field name="responsable" widget="many2one_avatar_user"/>
               <field name="moneda"/>
               <field name="kanban_state"/>
-              <!--progressbar field="kanban_state" colors="{'normal': 'muted', 'done': 'success', 'blocked': 'danger'}"/-->
+              <progressbar field="kanban_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
               <templates>
                 <t t-name="kanban-box">
                   <div class="o_kanban_record oe_kanban_global_click o_kanban_record_has_image_fill" color="color">
