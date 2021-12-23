@@ -3,6 +3,7 @@ from openerp import fields, models, api
 
 class Contratos_Principal(models.Model):
     _name = 'contratos.principal'
+    _inherit = ['mail.thread','mail.activity.mixin']
     _description ='Contratos Principales'
 
     name = fields.Char()
