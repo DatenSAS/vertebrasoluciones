@@ -22,6 +22,10 @@ class Contratos_Principal(models.Model):
     valor_facturado = fields.Monetary(string='Valor Facturado', currency_field='moneda')
     gastos = fields.Monetary(string='Gastos', currency_field='moneda')
     moneda = fields.Many2one('res.currency', string='Moneda', default=_default_currency)
+
+    def _default_currency(self):
+        return self.env['res.currency'].search([('name', '=', 'COP')], limit=1).id
+
     alcance = fields.Html(string='Alcance')
     pct_facturado = fields.Float(string='Pct Facturado')
     contrato = fields.Boolean(string='Contrato')
@@ -34,11 +38,8 @@ class Contratos_Principal(models.Model):
     prioridad = fields.Boolean()
     color = fields.Integer(default = 1)
 
-    def _default_currency(self):
-        return self.env['res.currency'].search([('name', '=', 'COP')], limit=1).id
-
     @api.model
-    def _read_group_stage_ids(self, stages, domain, order):
+    def _read_group_stage_ids(self):
         stage_ids = self.env['etapas'].search([])
         return stage_ids
 
