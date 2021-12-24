@@ -21,6 +21,9 @@
                         <field name="name"/>
                         <field name="cliente" domain="[('category_id.id','=',1)]"/>
                         <field name="activo"/>
+                        <xpath expr="//field[@name='cliente']" position="attributes">
+                            <attribute name="options">{"no_create":true}</attribute>
+                        </xpath>
                     </group>
             </form>
         </field>

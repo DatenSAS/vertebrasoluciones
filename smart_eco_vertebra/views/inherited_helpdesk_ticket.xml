@@ -13,6 +13,15 @@
                <field name="cuenta"/>
                <field name="grupo"/>
           </xpath>
+          <xpath expr="//field[@name='contacto']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='punto']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='cuenta']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
           <xpath expr="//field[@name='cuenta']" position="attributes">
                <attribute name = "domain">[('punto', '=', punto_id)]</attribute>
           </xpath>

@@ -13,8 +13,29 @@
           <xpath expr="//field[@name='punto']" position="after">
                   <field name="contrato" attrs="{'invisible': [('tipo','!=','M&amp;T')]}"/>
           </xpath>
+          <xpath expr="//field[@name='punto']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
           <xpath expr="//field[@name='contrato']" position="attributes">
                <attribute name = "domain">[('activo', '=', True),('cliente','=',cliente_id)]</attribute>
+          </xpath>
+          <xpath expr="//field[@name='contrato']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='cuenta']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='prestador_aseo']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='prestador_ap']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='tec_vis']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='tec_ins']" position="attributes">
+                <attribute name="options">{"no_create":true}</attribute>
           </xpath>
           <xpath expr="//field[@name='tag_ids']" position="after">
                   <field name="es_viable" attrs="{'invisible': [('tipo','!=','Ecoeficiencia - Instalaciones')]}" />
