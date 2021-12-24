@@ -8,7 +8,7 @@ class Gastos(models.Model):
     name = fields.Char()
     contrato = fields.Many2one('contratos.principal',string='Contrato')
     fecha = fields.Date(string='Fecha de Gasto')
-    tercero = fields.Many2one(string='Tercero')
+    tercero = fields.Many2one('res.partner',string='Tercero')
     motivo = fields.Selection(
         [('Transporte', 'Transporte'), ('Alimentación', 'Alimentación'),
          ('Hospedaje', 'Hospedaje'),('Compra de Insumos y Materiales', 'Compra de Insumos y Materiales'),
