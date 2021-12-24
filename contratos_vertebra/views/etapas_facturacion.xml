@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='etapas_facturacion_action' model='ir.actions.act_window'>
+        <field name="name">Etapas de Facturacion</field>
+        <field name="res_model">etapas.facturacion</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem name="Etapas de Facturacion"
+              id="etapas_facturacion_base_menu"
+              parent="contratos_vertebra.configuracion_base_menu"
+              action="etapas_facturacion_action"
+              sequence="9"/>
+
+    <record id="etapas_facturacion_view_tree" model="ir.ui.view">
+        <field name="name">Etapas de Facturacion</field>
+        <field name="model">etapas.facturacion</field>
+        <field name="arch" type="xml">
+                <tree editable="bottom">
+                      <field name="secuencia" widget="handle"/>
+                      <field name="name"/>
+                </tree>
+        </field>
+    </record>
+</odoo>
