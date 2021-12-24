@@ -96,7 +96,7 @@
                  <field name="cliente"/>
                  <field name="responsable"/>
                  <field name="valor_inicial"/>
-                 <field name="valor total"/>
+                 <field name="valor_total"/>
             </tree>
         </field>
     </record>
