@@ -13,7 +13,7 @@ class Contratos_Principal(models.Model):
     etapas = fields.Many2one('etapas', string='Etapas', group_expand='_read_group_stage_ids', default = 1)
 
     @api.model
-    def _read_group_stage_ids(self):
+    def _read_group_stage_ids(self,stages,domain,order):
         stage_ids = self.env['stage.stage'].search([])
         return stage_ids
 
