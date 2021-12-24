@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='gastos_action' model='ir.actions.act_window'>
+        <field name="name">Gastos</field>
+        <field name="res_model">gastos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Gastos"
+              id="contratos_base_menu_3"
+              parent="contratos_vertebra.contratos_base_menu_0"
+              action="gastos_action"
+              sequence="7"/>
+
+    <record id="gastos_view_form" model="ir.ui.view">
+        <field name="name">gastos.form.view</field>
+        <field name="model">gastos</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" required="1" placeholder="Gasto"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="contrato"/>
+                                <field name="tercero"/>
+                                <field name="fecha_gasto"/>
+                            </group>
+                            <group>
+                                <field name="motivo"/>
+                                <field name="valor"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter" name="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="facturacion_view_tree" model="ir.ui.view">
+        <field name="name">facturacion.tree.view</field>
+        <field name="model">facturacion</field>
+        <field name="arch" type="xml">
+            <tree>
+                 <field name="secuencia" widget="handle"/>
+                 <field name="name"/>
+                 <field name="responsable" widget="many2one_avatar_user"/>
+                 <field name="moneda" invisible="1"/>
+                 <field name="valor" widget="monetary" options="{'currency_field': 'moneda'}" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
