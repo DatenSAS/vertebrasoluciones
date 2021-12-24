@@ -31,7 +31,7 @@
 
     <menuitem name="Actualizar Datos"
               id="contratos_base_menu_3"
-              parent="contratos_vertebra.contratos_base_menu_2"
+              parent="contratos_vertebra.contratos_base_menu_1"
               action="actualizar_action"
               sequence="7"/>
 

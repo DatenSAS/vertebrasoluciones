@@ -53,7 +53,7 @@ class Contratos_Principal(models.Model):
              valor_pro = 0
              for prorroga in prorrogas:
                  valor_pro = valor_pro + prorroga['valor']
-             contrato['valor_final'] = valor_pro + contrato['valor_inicial']
+             contrato['valor_total'] = valor_pro + contrato['valor_inicial']
 
              facturas = self.env['facturacion'].search([('contrato', '=', contrato.id)])
              valor_fac = 0
