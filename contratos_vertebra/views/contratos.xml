@@ -10,7 +10,7 @@
         <field name="name">Actualizar Datos</field>
         <field name="model_id" ref="contratos_vertebra.model_contratos_principal"/>
         <field name="state">code</field>
-        <field name="code">model._actualizar_datos()</field>
+        <field name="code">model.actualizar_datos()</field>
     </record>
 
     <menuitem name="Contratos"
@@ -21,12 +21,17 @@
     <menuitem name="Contratos"
               id="contratos_base_menu_1"
               parent="contratos_vertebra.contratos_base_menu_0"
+              sequence="2"/>
+
+    <menuitem name="Contratos"
+              id="contratos_base_menu_2"
+              parent="contratos_vertebra.contratos_base_menu_1"
               action="contratos_action"
               sequence="2"/>
 
     <menuitem name="Actualizar Datos"
-              id="contratos_base_menu_2"
-              parent="contratos_vertebra.contratos_base_menu_0"
+              id="contratos_base_menu_3"
+              parent="contratos_vertebra.contratos_base_menu_2"
               action="actualizar_action"
               sequence="7"/>
 
