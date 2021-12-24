@@ -5,5 +5,5 @@ class Prorrogas(models.Model):
     _inherit = ['mail.thread','mail.activity.mixin']
     _description ='Prorrogas'
 
-    name = fields.Char()
+    name = fields.Char(string="Nombre")
     contrato = fields.Many2one('contratos.principal',string='Contrato')

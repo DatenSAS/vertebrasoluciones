@@ -10,7 +10,7 @@
               id="prorrogas_base_menu_1"
               parent="contratos_vertebra.contratos_base_menu_0"
               action="prorrogas_action"
-              sequence="7"/>
+              sequence="11"/>
 
     <record id="prorrogas_view_form" model="ir.ui.view">
         <field name="name">Prorrogas</field>
