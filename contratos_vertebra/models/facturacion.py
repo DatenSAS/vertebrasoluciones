@@ -34,7 +34,7 @@ class Facturacion(models.Model):
     color = fields.Integer(default=1)
 
 
-class Etapas(models.Model):
+class Etapas_Facturacion(models.Model):
     _name = 'etapas.facturacion'
     _description = 'Etapas para Facturación'
 
