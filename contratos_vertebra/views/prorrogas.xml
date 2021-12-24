@@ -48,7 +48,7 @@
                  <field name="name"/>
                  <field name="responsable" widget="many2one_avatar_user"/>
                  <field name="fecha_inicio"/>
-                 <field name="fecha_final"/>
+                 <field name="fecha_fin"/>
                  <field name="moneda" invisible="1"/>
                  <field name="valor" widget="monetary" options="{'currency_field': 'moneda'}" sum="Total"/>
             </tree>
