@@ -95,8 +95,9 @@
                  <field name="name"/>
                  <field name="cliente"/>
                  <field name="responsable" widget="many2one_avatar_user"/>
-                 <field name="valor_inicial"/>
-                 <field name="valor_total"/>
+                 <field name="moneda" invisible="1"/>
+                 <field name="valor_inicial" widget="monetary" options="{'currency_field': 'moneda'}" sum="Total"/>
+                 <field name="valor_total" widget="monetary" options="{'currency_field': 'moneda'}" sum="Total"/>
             </tree>
         </field>
     </record>
