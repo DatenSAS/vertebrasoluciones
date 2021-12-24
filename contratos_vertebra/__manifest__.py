@@ -13,7 +13,7 @@ Manejo de Contratos Soluciones Vertebra
               'views/prorrogas.xml',
               'views/etapas.xml',
               'views/facturacion.xml',
-              'views/gastos.xml'
+              'views/gastos.xml',
               'security/ir.model.access.csv'
         ],
     'installable': True,
