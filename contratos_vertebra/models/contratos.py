@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from openerp import fields, models, api
+from odoo import exceptions
 
 class Contratos_Principal(models.Model):
     _name = 'contratos.principal'
@@ -69,6 +70,29 @@ class Contratos_Principal(models.Model):
              for gasto in gastos:
                  valor_gas = valor_gas + gasto['valor']
              contrato['gastos'] = valor_gas
+
+    @api.onchange('etapas')
+    def a_suspendido(self):
+        if self._origin.etapas.id == 3 and self.etapas.id==3:
+            raise exceptions.UserError('No se permite este cambio de etapa')
+
+    @api.onchange('etapas')
+    def check(self):
+        if self._origin.etapas.id == 1:
+            if not self.contrato:
+                raise exceptions.UserError('Falta Verificar Contrato')
+            if not self.polizas:
+                raise exceptions.UserError('Falta Verificar Pólizas')
+            if not self.oferta_tecnica:
+                raise exceptions.UserError('Falta Verificar Oferta Técnica')
+            if not self.anexos:
+                raise exceptions.UserError('Falta Verificar Anexos')
+            if not self.matriz:
+                raise exceptions.UserError('Falta Verificar Matriz')
+            if not self.presupuesto:
+                raise exceptions.UserError('Falta Verificar Presupuesto')
+            if not self.informe:
+                raise exceptions.UserError('Falta Verificar Informe')
 
 class Etapas (models.Model):
     _name = 'etapas'
