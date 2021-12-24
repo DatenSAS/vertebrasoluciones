@@ -12,6 +12,7 @@ Manejo de Contratos Soluciones Vertebra
     'data' : ['views/contratos.xml',
               'views/prorrogas.xml',
               'views/etapas.xml',
+              'views/facturacion.xml',
               'security/ir.model.access.csv'
         ],
     'installable': True,
