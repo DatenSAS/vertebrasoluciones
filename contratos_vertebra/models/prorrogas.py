@@ -16,3 +16,4 @@ class Prorrogas(models.Model):
         return self.env['res.currency'].search([('name', '=', 'COP')], limit=1).id
 
     moneda = fields.Many2one('res.currency', string='Moneda', default=_default_currency)
+    secuencia = fields.Integer()
