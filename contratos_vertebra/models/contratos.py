@@ -46,6 +46,9 @@ class Contratos_Principal(models.Model):
     prioridad = fields.Boolean()
     color = fields.Integer(default = 1)
 
+    def actualizar_datos(self):
+        pass
+
 
 class Etapas (models.Model):
     _name = 'etapas'

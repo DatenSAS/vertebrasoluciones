@@ -17,6 +17,12 @@
               action="contratos_action"
               sequence="2"/>
 
+    <menuitem name="Actualizar Datos"
+              id="contratos_base_menu_2"
+              parent="contratos_vertebra.contratos_base_menu_0"
+              action="actualizar_datos"
+              sequence="7"/>
+
     <record id="contrato_view_form" model="ir.ui.view">
         <field name="name">contratos.form.view</field>
         <field name="model">contratos.principal</field>

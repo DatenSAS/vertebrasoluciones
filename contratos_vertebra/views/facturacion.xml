@@ -7,7 +7,7 @@
     </record>
 
     <menuitem name="Facturacion"
-              id="contratos_base_menu_2"
+              id="facturacion_base_menu"
               parent="contratos_vertebra.contratos_base_menu_0"
               action="facturacion_action"
               sequence="5"/>

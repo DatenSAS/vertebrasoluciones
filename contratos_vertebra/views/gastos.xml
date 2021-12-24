@@ -7,7 +7,7 @@
     </record>
 
     <menuitem name="Gastos"
-              id="contratos_base_menu_3"
+              id="gastos_base_menu"
               parent="contratos_vertebra.contratos_base_menu_0"
               action="gastos_action"
               sequence="7"/>
