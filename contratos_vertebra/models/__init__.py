@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-from . import contratos, prorrogas, facturacion
+from . import contratos, prorrogas, facturacion, gastos
