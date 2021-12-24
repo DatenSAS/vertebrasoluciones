@@ -29,7 +29,7 @@
                             <group>
                                 <field name="contrato"/>
                                 <field name="tercero"/>
-                                <field name="fecha_gasto"/>
+                                <field name="fecha"/>
                             </group>
                             <group>
                                 <field name="motivo"/>
