@@ -39,4 +39,21 @@
             </form>
         </field>
     </record>
+    <record id="prorrogas_view_tree" model="ir.ui.view">
+        <field name="name">prorrogas.tree.view</field>
+        <field name="model">prorrogas</field>
+        <field name="arch" type="xml">
+            <tree>
+                 <field name="secuencia" widget="handle"/>
+                 <field name="name"/>
+                 <field name="responsable" widget="many2one_avatar_user"/>
+                 <field name="fecha_inicio"/>
+                 <field name="fecha_final"/>
+                 <field name="moneda" invisible="1"/>
+                 <field name="valor" widget="monetary" options="{'currency_field': 'moneda'}" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+
 </odoo>
