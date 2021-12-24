@@ -14,7 +14,7 @@ class Contratos_Principal(models.Model):
 
     @api.model
     def _read_group_stage_ids(self,stages,domain,order):
-        stage_ids = self.env['stage.stage'].search([])
+        stage_ids = self.env['etapas'].search([])
         return stage_ids
 
 
