@@ -8,7 +8,7 @@
 
     <record id='actualizar_action' model='ir.actions.server'>
         <field name="name">Actualizar Datos</field>
-        <field name="model_id" ref="contratos_vertebra.model_contratos"/>
+        <field name="model_id" ref="contratos_vertebra.model_contratos_principal"/>
         <field name="state">code</field>
         <field name="code">model._actualizar_datos()</field>
     </record>
