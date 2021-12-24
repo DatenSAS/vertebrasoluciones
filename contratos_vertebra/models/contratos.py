@@ -47,8 +47,28 @@ class Contratos_Principal(models.Model):
     color = fields.Integer(default = 1)
 
     def actualizar_datos(self):
-        pass
+        contratos = self.env['contratos.principal'].search([])
+        for contrato in contratos:
+             prorrogas = self.env['prorrogas'].search([('contrato', '=', contrato.id)])
+             valor_pro = 0
+             for prorroga in prorrogas:
+                 valor_pro = valor_pro + prorroga['valor']
+             contrato['valor_final'] = valor_pro + contrato['valor_inicial']
 
+             facturas = self.env['facturacion'].search([('contrato', '=', contrato.id)])
+             valor_fac = 0
+             for factura in facturas:
+                 if factura.etapa.id == 2 or factura.etapa.id == 3:
+                     valor_fac = valor_fac + factura['valor']
+             contrato['valor_facturado'] = valor_fac
+             if contrato['valor_inicial']:
+                 contrato['pct_facturado'] = valor_fac / contrato['valor_inicial']
+
+             gastos = self.env['gastos'].search([('contrato', '=', contrato.id)])
+             valor_gas = 0
+             for gasto in gastos:
+                 valor_gas = valor_gas + gasto['valor']
+             contrato['gastos'] = valor_gas
 
 class Etapas (models.Model):
     _name = 'etapas'
