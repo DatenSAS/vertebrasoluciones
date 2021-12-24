@@ -35,7 +35,7 @@ class Facturacion(models.Model):
 
 
 class Etapas(models.Model):
-    _name = 'etapas,facturacion'
+    _name = 'etapas.facturacion'
     _description = 'Etapas para Facturación'
 
     name = fields.Char()
