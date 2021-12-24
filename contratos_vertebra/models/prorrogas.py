@@ -7,3 +7,12 @@ class Prorrogas(models.Model):
 
     name = fields.Char(string="Nombre")
     contrato = fields.Many2one('contratos.principal',string='Contrato')
+    fecha_inicio = fields.Date(string='Fecha Inicio')
+    fecha_fin = fields.Date(string='Fecha Final')
+    responsable = fields.Many2one('res.users', string='Responsable')
+    valor = fields.Monetary(string='Valor', currency_field='moneda')
+
+    def _default_currency(self):
+        return self.env['res.currency'].search([('name', '=', 'COP')], limit=1).id
+
+    moneda = fields.Many2one('res.currency', string='Moneda', default=_default_currency)

@@ -5,7 +5,7 @@ class Gastos(models.Model):
     _inherit = ['mail.thread','mail.activity.mixin']
     _description ='Gastos'
 
-    name = fields.Char()
+    name = fields.Char(string="Nombre")
     contrato = fields.Many2one('contratos.principal',string='Contrato')
     fecha = fields.Date(string='Fecha de Gasto')
     tercero = fields.Many2one('res.partner',string='Tercero')

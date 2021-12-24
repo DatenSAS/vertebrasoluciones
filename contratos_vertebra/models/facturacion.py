@@ -6,7 +6,7 @@ class Facturacion(models.Model):
     _inherit = ['mail.thread','mail.activity.mixin']
     _description ='Facturación Contratos'
 
-    name = fields.Char()
+    name = fields.Char(string="Nombre")
     contrato = fields.Many2one('contratos.principal', string='Contrato')
     fecha_emision = fields.Date(string='Fecha de Emision')
     fecha_vencimiento = fields.Date(string='Fecha de Vencimiento')

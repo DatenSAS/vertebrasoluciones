@@ -6,7 +6,7 @@ class Contratos_Principal(models.Model):
     _inherit = ['mail.thread','mail.activity.mixin']
     _description ='Contratos Principales'
 
-    name = fields.Char()
+    name = fields.Char(string="Nombre")
     objeto = fields.Text(string = 'Objeto')
     fecha_inicio =fields.Date(string = 'Fecha de Inicio')
     fecha_final = fields.Date(string='Fecha Final')
