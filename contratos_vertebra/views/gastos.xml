@@ -34,6 +34,7 @@
                             <group>
                                 <field name="motivo"/>
                                 <field name="valor"/>
+                                <field name="moneda" invisible="1"/>
                             </group>
                         </group>
                     </sheet>

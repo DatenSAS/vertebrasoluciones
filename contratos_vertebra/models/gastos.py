@@ -15,3 +15,9 @@ class Gastos(models.Model):
          ('Personal', 'Personal'),('Sanción','Sanciones')],
          'Motivo del Gasto')
     secuencia = fields.Integer()
+    valor = fields.Monetary(string='Valor', currency_field='moneda')
+
+    def _default_currency(self):
+        return self.env['res.currency'].search([('name', '=', 'COP')], limit=1).id
+
+    moneda = fields.Many2one('res.currency', string='Moneda', default=_default_currency)
