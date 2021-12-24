@@ -37,6 +37,9 @@
           <xpath expr="//field[@name='tec_ins']" position="attributes">
                 <attribute name="options">{"no_create":true}</attribute>
           </xpath>
+          <xpath expr="//field[@name='category_id']" position="attributes">
+               <attribute name = "invisible">True</attribute>
+          </xpath>
           <xpath expr="//field[@name='tag_ids']" position="after">
                   <field name="es_viable" attrs="{'invisible': [('tipo','!=','Ecoeficiencia - Instalaciones')]}" />
           </xpath>
