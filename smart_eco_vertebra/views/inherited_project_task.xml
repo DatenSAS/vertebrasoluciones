@@ -14,7 +14,7 @@
                   <field name="contrato" attrs="{'invisible': [('tipo','!=','M&amp;T')]}"/>
           </xpath>
           <xpath expr="//field[@name='punto']" position="attributes">
-                <attribute name="options">{"no_create":true}</attribute>
+                <attribute name="options">{'no_create':True}</attribute>
           </xpath>
           <xpath expr="//field[@name='contrato']" position="attributes">
                <attribute name = "domain">[('activo', '=', True),('cliente','=',cliente_id)]</attribute>
