@@ -265,6 +265,12 @@
           <xpath expr="//field[@name='distribuidor_energia']" position="attributes">
                 <attribute name="options">{'no_create':True}</attribute>
           </xpath>
+          <xpath expr="//field[@name='equipo']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='sim_card']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
       </field>
     </record>
 </odoo>
