@@ -21,7 +21,7 @@
                <attribute name = "invisible">True</attribute>
           </xpath>
           <xpath expr="//field[@name='tag_ids']" position="after">
-                  <field name="es_viable" attrs="{'invisible': [('tipo','!=','Ecoeficiencia - Instalaciones'),
+                  <field name="es_viable" attrs="{'invisible': ['|',('tipo','!=','Ecoeficiencia - Instalaciones'),
                                                                  '&amp;',('tipo','=','Ecoeficiencia - Instalaciones'),
                                                                   ('stage_id','in', [27,28])]}" />
           </xpath>
@@ -257,6 +257,9 @@
                 <attribute name="options">{'no_create':True}</attribute>
           </xpath>
           <xpath expr="//field[@name='tec_vis']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='tec_ins']" position="attributes">
                 <attribute name="options">{'no_create':True}</attribute>
           </xpath>
       </field>
