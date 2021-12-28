@@ -20,7 +20,7 @@
           <xpath expr="//field[@name='tag_ids']" position="attributes">
                <attribute name = "invisible">True</attribute>
           </xpath>
-          <xpath expr="//field[@name='tags_ids']" position="after">
+          <xpath expr="//field[@name='tag_ids']" position="after">
                   <field name="es_viable" attrs="{'invisible': [('tipo','!=','Ecoeficiencia - Instalaciones'),
                                                                  '&amp;',('tipo','=','Ecoeficiencia - Instalaciones'),
                                                                   ('stage_id','in', [27,28])]}" />
