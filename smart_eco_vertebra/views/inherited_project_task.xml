@@ -13,35 +13,17 @@
           <xpath expr="//field[@name='punto']" position="after">
                   <field name="contrato" attrs="{'invisible': [('tipo','!=','M&amp;T')]}"/>
           </xpath>
-          <xpath expr="//field[@name='punto']" position="attributes">
-                <attribute name="options">{'no_create':True}</attribute>
-          </xpath>
           <xpath expr="//field[@name='contrato']" position="attributes">
                <attribute name = "domain">[('activo', '=', True),('cliente','=',cliente_id)]</attribute>
           </xpath>
-          <xpath expr="//field[@name='contrato']" position="attributes">
-                <attribute name="options">{"no_create":true}</attribute>
-          </xpath>
-          <xpath expr="//field[@name='cuenta']" position="attributes">
-                <attribute name="options">{"no_create":true}</attribute>
-          </xpath>
-          <xpath expr="//field[@name='prestador_aseo']" position="attributes">
-                <attribute name="options">{"no_create":true}</attribute>
-          </xpath>
-          <xpath expr="//field[@name='prestador_ap']" position="attributes">
-                <attribute name="options">{"no_create":true}</attribute>
-          </xpath>
-          <xpath expr="//field[@name='tec_vis']" position="attributes">
-                <attribute name="options">{"no_create":true}</attribute>
-          </xpath>
-          <xpath expr="//field[@name='tec_ins']" position="attributes">
-                <attribute name="options">{"no_create":true}</attribute>
-          </xpath>
-          <xpath expr="//field[@name='category_id']" position="attributes">
+
+          <xpath expr="//field[@name='tag_ids']" position="attributes">
                <attribute name = "invisible">True</attribute>
           </xpath>
-          <xpath expr="//field[@name='tag_ids']" position="after">
-                  <field name="es_viable" attrs="{'invisible': [('tipo','!=','Ecoeficiencia - Instalaciones')]}" />
+          <xpath expr="//field[@name='tags_ids']" position="after">
+                  <field name="es_viable" attrs="{'invisible': [('tipo','!=','Ecoeficiencia - Instalaciones'),
+                                                                 '&amp;',('tipo','=','Ecoeficiencia - Instalaciones'),
+                                                                  ('stage_id','in', [27,28])]}" />
           </xpath>
           <xpath expr="//field[@name='partner_id']" position="attributes">
                <attribute name = "domain">[('category_id.id', '=', 1)]</attribute>
@@ -250,6 +232,35 @@
                         </group>
                     </group>
                 </page>
+          </xpath>
+      </field>
+    </record>
+
+    <record id="inherited_project_task_form_2" model="ir.ui.view">
+      <field name="name">project.task.form2</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_form2"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='punto']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='contrato']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='cuenta']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='prestador_aseo']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='prestador_ap']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='tec_vis']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='tec_ins']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
           </xpath>
       </field>
     </record>

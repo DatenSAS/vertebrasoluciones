@@ -25,7 +25,7 @@
           <xpath expr="//field[@name='cuenta']" position="attributes">
                <attribute name = "domain">[('punto', '=', punto_id)]</attribute>
           </xpath>
-          <xpath expr="//field[@name='category_id']" position="attributes">
+          <xpath expr="//field[@name='tags_ids']" position="attributes">
                <attribute name = "invisible">True</attribute>
           </xpath>
           <xpath expr="//field[@name='cuenta']" position="after">
