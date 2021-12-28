@@ -259,9 +259,6 @@
           <xpath expr="//field[@name='tec_vis']" position="attributes">
                 <attribute name="options">{'no_create':True}</attribute>
           </xpath>
-          <xpath expr="//field[@name='tec_ins']" position="attributes">
-                <attribute name="options">{'no_create':True}</attribute>
-          </xpath>
       </field>
     </record>
 </odoo>
