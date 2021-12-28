@@ -262,7 +262,7 @@
           <xpath expr="//field[@name='tec_ins']" position="attributes">
                 <attribute name="options">{'no_create':True}</attribute>
           </xpath>
-          <xpath expr="//field[@name='tec_ins']" position="attributes">
+          <xpath expr="//field[@name='distribuidor_energia']" position="attributes">
                 <attribute name="options">{'no_create':True}</attribute>
           </xpath>
       </field>

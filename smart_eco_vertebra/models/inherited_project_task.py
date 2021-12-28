@@ -262,6 +262,8 @@ class project_task(models.Model):
                 if not self.medidas:
                     raise exceptions.UserError('Falta diligenciar Archivo Adjunto de Medidas')
 
+# Generación de tickets para el cambio de comercializador
+
     def generar_ticket(self):
         ticket = self.env['helpdesk.ticket'].create({
                 'kanban_state':'normal',
@@ -294,6 +296,9 @@ class project_task(models.Model):
                 'description':'Este ticket fue generado desde el proceso de Cambio de Comercializador como resultado de una Reclamación de Aseo'
                 })
         self.task_ticket_aseo = ticket.id
+
+
+    # Checkeo de formato de visita que permite seleccionar como viable la instalación
 
     @api.onchange('es_viable')
     def viabilidad (self):
