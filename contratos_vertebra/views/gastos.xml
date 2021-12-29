@@ -47,6 +47,17 @@
         </field>
     </record>
 
+    <record id="inherited_project_task_form_2" model="ir.ui.view">
+      <field name="name">gastos.form2</field>
+      <field name="model">gastos</field>
+      <field name="inherit_id" ref="gastos_view_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='tercero']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+      </field>
+    </record>
+
     <record id="gastos_view_tree" model="ir.ui.view">
         <field name="name">gastos.tree.view</field>
         <field name="model">gastos</field>
