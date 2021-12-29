@@ -30,7 +30,7 @@
                                 <field name="contrato" domain="[('etapas','=',2)]" required="1"/>
                                 <label string="Inicio/Terminación" for="fecha_inicio"/>
                                 <div class="o_row">
-                                    <field name="fecha_inicio" widget="daterange" options="{'related_end_date': 'fecha_final'}"/>
+                                    <field name="fecha_inicio" widget="daterange" options="{'related_end_date': 'fecha_fin'}"/>
                                     <span> a </span>
                                     <field name="fecha_fin" widget="daterange" options="{'related_start_date': 'fecha_inicio'}"/>
                                 </div>
