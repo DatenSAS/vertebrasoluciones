@@ -131,6 +131,7 @@
               <field name="moneda"/>
               <field name="kanban_state"/>
               <field name="valor_total"/>
+              <field name="etapas" invisible="1"/>
               <progressbar field="kanban_state" colors='{"done": "success", "normal": "muted", "blocked": "danger"}' sum_field="valor_total"/>
               <templates>
                 <t t-name="kanban-box">
