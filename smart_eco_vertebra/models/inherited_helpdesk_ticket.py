@@ -144,7 +144,8 @@ class ticket(models.Model):
 
     @api.onchange('stage_id')
     def desde_nuevo(self):
-        if self._origin.stage_id.id == 1 and self.stage_id.id != 16:
+        stages=[14, 16]
+        if self._origin.stage_id.id == 1 and self.stage_id.id not in stages:
              if not self.user_id:
                  raise exceptions.UserError('Falta asignar el Ticket')
              if not self.categoria_help:
