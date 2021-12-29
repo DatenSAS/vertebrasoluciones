@@ -42,7 +42,7 @@ class Contratos_Principal(models.Model):
     anexos = fields.Boolean(string='Anexos al Contrato')
     matriz = fields.Boolean(string='Matriz Contractual')
     presupuesto = fields.Boolean(string='Presupuesto General Inicial')
-    informe = fields.Boolean(string='Informe de Materializacaión')
+    informe = fields.Boolean(string='Informe de Materialización')
 
     prioridad = fields.Boolean()
     color = fields.Integer(default = 1)
@@ -85,8 +85,6 @@ class Contratos_Principal(models.Model):
                 raise exceptions.UserError('Falta Verificar Pólizas')
             if not self.oferta_tecnica:
                 raise exceptions.UserError('Falta Verificar Oferta Técnica')
-            if not self.anexos:
-                raise exceptions.UserError('Falta Verificar Anexos')
             if not self.matriz:
                 raise exceptions.UserError('Falta Verificar Matriz')
             if not self.presupuesto:
