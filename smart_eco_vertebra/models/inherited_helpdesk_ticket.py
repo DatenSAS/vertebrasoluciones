@@ -92,6 +92,9 @@ class ticket(models.Model):
     categoria_id = fields.Integer(related='categoria_help.id', string="Categoria ID")
 
     solucion = fields.Html(string="Solución")
+    centro_de_costo = fields.Char(related='punto.centro_costo')
+    departamento = fields.Char(related='punto.departamento')
+    municipio = fields.Char(related='punto.ciudad')
 
 
     @api.onchange('fecha_solicitud','fecha_recepcion')
