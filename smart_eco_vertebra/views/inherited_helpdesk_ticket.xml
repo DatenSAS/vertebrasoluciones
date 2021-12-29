@@ -151,6 +151,9 @@
           <xpath expr="//field[@name='user_id']" position="attributes">
                 <attribute name="options">{'no_create':True}</attribute>
           </xpath>
+          <xpath expr="//field[@name='escalado_a']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
       </field>
     </record>
 
