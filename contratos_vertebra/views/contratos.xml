@@ -52,8 +52,8 @@
                         </div>
                         <group>
                             <group>
+                                <field name="cliente" domain="[('category_id','=',1)]" required="1"/>
                                 <field name="objeto"/>
-                                <field name="cliente" domain="[('category_id','=',4)]"/>
                                 <label string="Inicio/Terminación" for="fecha_inicio"/>
                                 <div class="o_row">
                                     <field name="fecha_inicio" widget="daterange" options="{'related_end_date': 'fecha_final'}"/>
