@@ -15,6 +15,7 @@ Integración con plataforma Smart Eco
               'views/inherited_project_project.xml',
               'views/inherited_helpdesk_ticket.xml',
               'views/contratos_mt.xml',
+              'security/security.xml',
               'security/ir.model.access.csv'
         ],
     'installable': True,
