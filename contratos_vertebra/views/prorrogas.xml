@@ -27,7 +27,7 @@
                         </div>
                         <group>
                             <group>
-                                <field name="contrato"/>
+                                <field name="contrato" domain="[('etapas','=',2)]"/>
                                 <label string="Inicio/Terminación" for="fecha_inicio"/>
                                 <div class="o_row">
                                     <field name="fecha_inicio" widget="daterange" options="{'related_end_date': 'fecha_final'}"/>
