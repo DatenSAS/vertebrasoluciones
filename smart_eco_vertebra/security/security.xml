@@ -14,9 +14,4 @@
         <field name="name">Manager</field>
         <field name="category_id" ref="module_category_smart"/>
     </record>
-
-    <record id='group_helpdesk_operador' model='res.groups'>
-        <field name="name">Operador</field>
-        <field name="category_id" ref="base.module_category_services_helpdesk"/>
-    </record>
 </odoo>
