@@ -19,6 +19,4 @@
         <field name="name">Operador</field>
         <field name="category_id" ref="base.module_category_services_helpdesk"/>
     </record>
-
-
 </odoo>
