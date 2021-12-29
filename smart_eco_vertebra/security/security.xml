@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record model='base.model_ir_module_category' id='smart_eco_vertebra'>
+    <record model='ir_module_category' id='smart_eco_vertebra'>
         <field name="name">SmartEco - Vertebra</field>
         <field name="description">Integración con plataforma Smart Eco</field>
     </record>
