@@ -4,11 +4,14 @@
         <field name="name">Smart Eco</field>
         <field name="description">Integración Smart Eco</field>
     </record>
+
     <record id='group_smart_eco_user' model='res.groups'>
         <field name="name">Usuario</field>
+        <field name="category_id" ref="module_category_smart"/>
     </record>
 
     <record id='group_smart_eco_manager' model='res.groups'>
         <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_smart"/>
     </record>
 </odoo>
