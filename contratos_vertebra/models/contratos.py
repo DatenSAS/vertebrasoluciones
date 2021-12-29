@@ -59,7 +59,7 @@ class Contratos_Principal(models.Model):
              facturas = self.env['facturacion'].search([('contrato', '=', contrato.id)])
              valor_fac = 0
              for factura in facturas:
-                 if factura.etapa.id == 2 or factura.etapa.id == 3:
+                 if factura.etapas.id == 2 or factura.etapas.id == 3:
                      valor_fac = valor_fac + factura['valor']
              contrato['valor_facturado'] = valor_fac
              if contrato['valor_inicial']:
