@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id='group_smart_eco_user' model='res.groups'>
-        <field name="name">User</field>
+        <field name="name">Usuario</field>
         <!--field name="category_id" ref="base.model_ir_module_category"/-->
     </record>
 
