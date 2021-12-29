@@ -137,6 +137,20 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="inherited_helpdesk_ticket_form_2" model="ir.ui.view">
+      <field name="name">helpdesk.ticket.form2</field>
+      <field name="model">helpdesk.ticket</field>
+      <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='categoria_help']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='subcategoria_help']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
+      </field>
+    </record>
+
     <menuitem name="Proceso"
               id="proceso_base_menu"
               parent="helpdesk.helpdesk_menu_config"
