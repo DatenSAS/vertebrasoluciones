@@ -84,7 +84,7 @@ class ticket(models.Model):
     )
 
     escalado_a = fields.Many2one('res.partner', string='Escalado a', tracking=True)
-    proceso_help = fields.Many2one('proceso', string='Proceso', tracking=True)
+    proceso_help = fields.Many2one('proceso', string='Proceso', tracking=True, default=1)
     categoria_help = fields.Many2one('categoria', string='Categoria', tracking=True)
     subcategoria_help = fields.Many2one('subcategoria', string='Sub Categoria', tracking=True)
 
