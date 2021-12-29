@@ -274,6 +274,9 @@
           <xpath expr="//field[@name='comercializador_nuevo']" position="attributes">
                 <attribute name="options">{'no_create':True}</attribute>
           </xpath>
+          <xpath expr="//field[@name='user_ids']" position="attributes">
+                <attribute name="options">{'no_create':True}</attribute>
+          </xpath>
       </field>
     </record>
 </odoo>
