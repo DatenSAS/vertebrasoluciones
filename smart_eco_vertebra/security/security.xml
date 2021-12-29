@@ -2,11 +2,11 @@
 <odoo>
     <record id='group_smart_eco_user' model='res.groups'>
         <field name="name">User</field>
-        <field name="category_id" ref="base.model_ir_module_category"/>
+        <!--field name="category_id" ref="base.model_ir_module_category"/-->
     </record>
 
-    <record id='group_smart_eco_user' model='res.groups'>
+    <record id='group_smart_eco_manager' model='res.groups'>
         <field name="name">Manager</field>
-        <field name="category_id" ref="base.model_ir_module_category"/>
+        <!--field name="category_id" ref="base.model_ir_module_category"/-->
     </record>
 </odoo>
