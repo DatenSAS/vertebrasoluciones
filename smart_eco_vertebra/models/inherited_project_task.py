@@ -316,6 +316,7 @@ class project_task(models.Model):
             raise exceptions.UserError('Falta Diligenciar Completamente el Formato de Visita. No se Admiten Campos en Cero')
 
     # Sacar una tarea del flujo de ecoeficiencia de la etapa de cancelado solo es posible por un rol supervisor
+    # Pasar de 'En Progreso' a una etapa anterior solo es posible por un rol supervisor
 
     @api.onchange('stage_id')
     def desde_cancelada(self):
@@ -323,13 +324,17 @@ class project_task(models.Model):
         usuario = self.env['res.users'].search([('id','=',self._uid)])
         grupos = usuario.groups_id
         check = False
-
+        stages = [27, 28]
         for grupo in grupos:
             if grupo.id == 17:
                 check = True
 
         if self._origin.stage_id.id == 44 and not check:
             raise exceptions.UserError('Este cambio de etapa solo puede realizarse por un rol Supervisor')
+
+        if self._origin.stage_id.id == 29 and self.stage_id.id in stages and not check:
+            raise exceptions.UserError('Este cambio de etapa solo puede realizarse por un rol Supervisor')
+
 
 
 
