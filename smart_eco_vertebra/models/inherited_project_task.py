@@ -321,7 +321,7 @@ class project_task(models.Model):
     def desde_cancelada(self):
 
         usuario = self.env['res.users'].search([('id','=',self._uid)])
-        grupos = usuario.groups_ids
+        grupos = usuario.groups_id
         check = False
 
         for grupo in grupos:
