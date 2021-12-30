@@ -335,6 +335,9 @@ class project_task(models.Model):
         if self._origin.stage_id.id == 29 and self.stage_id.id in stages and not check:
             raise exceptions.UserError('Este cambio de etapa solo puede realizarse por un rol Supervisor')
 
+        if self._origin.stage_id.id == 26 and not check:
+            raise exceptions.UserError('Este cambio de etapa solo puede realizarse por un rol Supervisor')
+
 
 
 
