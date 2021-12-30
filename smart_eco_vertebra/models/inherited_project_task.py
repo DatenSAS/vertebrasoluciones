@@ -298,7 +298,7 @@ class project_task(models.Model):
         self.task_ticket_aseo = ticket.id
 
 
-    # Checkeo de formato de visita que permite seleccionar como viable la instalación
+    # Check de formato de visita que permite seleccionar como viable la instalación
 
     @api.onchange('es_viable')
     def viabilidad (self):
@@ -314,6 +314,24 @@ class project_task(models.Model):
 
         if self.es_viable and not check:
             raise exceptions.UserError('Falta Diligenciar Completamente el Formato de Visita. No se Admiten Campos en Cero')
+
+    # Sacar una tarea del flujo de ecoeficiencia de la etapa de cancelado solo es posible por un rol supervisor
+
+    @api.onchange('stage_id')
+    def desde_cancelada(self):
+
+        usuario = self.env['res.user'].search(self._uid)
+        grupos = usuario.groups_ids
+        check = False
+
+        for grupo in grupos:
+            if grupo == 17:
+                check = True
+
+        if self._origin.stage_id.id == 44 and not check:
+            raise exceptions.UserError('Este cambio de etapa solo puede realizarse por un rol Supervisor')
+
+
 
 
 
