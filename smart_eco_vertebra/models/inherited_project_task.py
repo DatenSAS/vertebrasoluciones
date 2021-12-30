@@ -320,7 +320,7 @@ class project_task(models.Model):
     @api.onchange('stage_id')
     def desde_cancelada(self):
 
-        usuario = self.env['res.users'].search(self._uid)
+        usuario = self.env['res.users'].search([('id','=',self._uid)])
         grupos = usuario.groups_ids
         check = False
 
