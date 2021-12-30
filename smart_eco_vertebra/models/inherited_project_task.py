@@ -325,8 +325,7 @@ class project_task(models.Model):
         check = False
 
         for grupo in grupos:
-            print (grupo)
-            if grupo == 17:
+            if grupo.id == 17:
                 check = True
 
         if self._origin.stage_id.id == 44 and not check:
