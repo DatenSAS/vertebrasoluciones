@@ -325,6 +325,7 @@ class project_task(models.Model):
         check = False
 
         for grupo in grupos:
+            print (grupo)
             if grupo == 17:
                 check = True
 
