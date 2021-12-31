@@ -52,7 +52,7 @@
                <field name="medio"/>
           </xpath>
           <xpath expr="//field[@name='partner_id']" position="attributes">
-               <attribute name = "domain">[('category_id.id', '=', 1),('is_company', '=', True)]</attribute>
+               <attribute name = "domain">[('category_id.id', '=', 1)]</attribute>
           </xpath>
           <xpath expr="//field[@name='punto']" position="attributes">
                <attribute name = "domain">[('cliente', '=', cliente_id)]</attribute>
