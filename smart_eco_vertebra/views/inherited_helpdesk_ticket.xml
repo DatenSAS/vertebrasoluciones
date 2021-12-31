@@ -7,16 +7,16 @@
       <field name="arch" type="xml">
           <xpath expr="//field[@name='partner_id']" position="after">
                <field name="cliente_id" invisible="1"/>
-               <field name="contacto" domain="[('is_company','=',False),('parent_id.id','=',cliente_id)]"/>
+               <!--field name="contacto" domain="[('is_company','=',False),('parent_id.id','=',cliente_id)]"/-->
                <field name="punto"/>
                <field name="punto_id" invisible="1"/>
                <field name="cuenta"/>
                <field name="grupo"/>
                <field name="tipo_propiedad"/>
           </xpath>
-          <xpath expr="//field[@name='contacto']" position="attributes">
+          <!--xpath expr="//field[@name='contacto']" position="attributes">
                 <attribute name="options">{"no_create":true}</attribute>
-          </xpath>
+          </xpath-->
           <xpath expr="//field[@name='punto']" position="attributes">
                 <attribute name="options">{"no_create":true}</attribute>
           </xpath>
