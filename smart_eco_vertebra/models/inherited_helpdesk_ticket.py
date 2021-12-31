@@ -46,7 +46,7 @@ class ticket(models.Model):
      )
     ticket_cnt = fields.Many2one('helpdesk.ticket', string="Ticket de Continuación",tracking=True)
 
-    cliente_id = fields.Integer(related='partner_id.id', string="Cliente ID")
+    cliente_id = fields.Integer(string="Cliente ID")
     punto = fields.Many2one('punto', string='Punto',tracking=True)
 
     info_adicional = fields.Boolean(string="¿Requiere Información Adicional?",tracking=True)
