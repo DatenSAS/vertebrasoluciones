@@ -12,6 +12,7 @@
                <field name="punto_id" invisible="1"/>
                <field name="cuenta"/>
                <field name="grupo"/>
+               <field name="tipo_propiedad"/>
           </xpath>
           <xpath expr="//field[@name='contacto']" position="attributes">
                 <attribute name="options">{"no_create":true}</attribute>

@@ -78,6 +78,7 @@
                         <field name="centro_costo"/>
                         <field name="tipo_punto"/>
                         <field name="estado"/>
+                        <field name="tipo_propiedad"/>
                     </group>
             </form>
         </field>

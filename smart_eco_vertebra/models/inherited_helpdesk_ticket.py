@@ -48,6 +48,7 @@ class ticket(models.Model):
 
     cliente_id = fields.Integer(related='partner_id.id', string="Cliente ID")
     punto = fields.Many2one('punto', string='Punto',tracking=True)
+
     info_adicional = fields.Boolean(string="¿Requiere Información Adicional?",tracking=True)
     escalar_prestador = fields.Boolean(string="¿Requiere Escalar a Prestador?",tracking=True)
     sin_radicado = fields.Boolean(string="¿Sin Radicado?",tracking=True)
@@ -72,6 +73,7 @@ class ticket(models.Model):
     )
 
     grupo = fields.Char(related='punto.grupo.name')
+    tipo_propiedad = fields.Char(related='punto.tipo_propiedad')
     cuenta = fields.Many2one('cuenta', string="Cuenta")
     punto_id = fields.Integer(related='punto.id', string="Punto ID")
     prestador = fields.Char(related='cuenta.prestador_servicio')

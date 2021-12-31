@@ -23,6 +23,7 @@ class punto(models.Model):
     centro_costo = fields.Char(string='Centro de Costo')
     tipo_punto = fields.Char(string='Tipo de Punto')
     estado = fields.Boolean(string='Estado del Punto')
+    tipo_propiedad = fields.Char(string="Tipo de Propiedad")
 
 class cuenta(models.Model):
     _name = 'cuenta'
