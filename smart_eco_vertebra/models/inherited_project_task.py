@@ -147,7 +147,7 @@ class project_task(models.Model):
     )
 
     modalidad = fields.Selection(
-        [('Comodato', 'Comodato'), ('Cambio de Medidor', 'Cambio de Medidor')],
+        [('Comodato', 'Comodato'), ('Compra de Medidor','Compra de Medidor')],
         'Modalidad', tracking=True
     )
 
