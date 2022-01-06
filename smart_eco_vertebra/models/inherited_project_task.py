@@ -206,9 +206,6 @@ class project_task(models.Model):
 
     @api.onchange('stage_id')
     def stage_no_viable(self):
-        stages = [20,21,22]
-        if self._origin.stage_id.id in stages and self.contrato_firmado != False and self.stage_id.id == 26:
-            raise exceptions.UserError('Solo se permite cuentas con contratos no firmados desde estas etapas')
         if self._origin.stage_id.id == 25 and self.stage_id.id == 26:
             raise exceptions.UserError('No se permite este cambio de etapa')
         if self._origin.stage_id.id == 24 and self.stage_id.id == 26:
