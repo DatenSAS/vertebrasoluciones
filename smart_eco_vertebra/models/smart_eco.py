@@ -15,8 +15,8 @@ class punto(models.Model):
 
     name = fields.Char(string='Punto')
     se_id = fields.Char(string='Id Smart Eco')
-    cliente = fields.Many2one('res.partner', string='Cliente')
-    grupo = fields.Many2one('grupo', string='Grupo')
+    cliente = fields.Many2one('res.partner', string='Cliente', ondelete='restrict')
+    grupo = fields.Many2one('grupo', string='Grupo', ondelete='restrict')
     departamento = fields.Char(string='Departamento')
     ciudad = fields.Char(string='Ciudad')
     direccion = fields.Char(string='Dirección')
@@ -31,7 +31,7 @@ class cuenta(models.Model):
 
     name = fields.Char(string='Número')
     se_id = fields.Char(string='Id Smart Eco')
-    cliente = fields.Many2one('res.partner', string='Cliente')
-    punto = fields.Many2one('punto', string='Punto')
+    cliente = fields.Many2one('res.partner', string='Cliente', ondelete='restrict')
+    punto = fields.Many2one('punto', string='Punto', ondelete='restrict')
     servicio = fields.Char(string='Servicio')
     prestador_servicio = fields.Char(string='Prestador del Servicio')

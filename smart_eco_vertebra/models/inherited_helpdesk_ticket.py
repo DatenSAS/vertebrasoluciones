@@ -5,7 +5,7 @@ from datetime import datetime
 class ticket(models.Model):
     _inherit = 'helpdesk.ticket'
 
-    contacto = fields.Many2one('res.partner', string='Contacto',tracking=True)
+    contacto = fields.Many2one('res.partner', string='Contacto',tracking=True, ondelete='restrict')
     origen = fields.Selection(
          [('Ecoeficiencia', 'Ecoeficiencia'), ('Pagos', 'Pagos'),
           ('Cliente', 'Cliente'),('M&T', 'M&T'),
@@ -44,10 +44,10 @@ class ticket(models.Model):
           ('Falta de Información adicional en el tiempo previsto','Falta de Información adicional en el tiempo previsto')],
          'Justificación',tracking=True
      )
-    ticket_cnt = fields.Many2one('helpdesk.ticket', string="Ticket de Continuación",tracking=True)
+    ticket_cnt = fields.Many2one('helpdesk.ticket', string="Ticket de Continuación",tracking=True, ondelete='restrict')
 
     cliente_id = fields.Integer(string="Cliente ID")
-    punto = fields.Many2one('punto', string='Punto',tracking=True)
+    punto = fields.Many2one('punto', string='Punto',tracking=True, ondelete='restrict')
 
     info_adicional = fields.Boolean(string="¿Requiere Información Adicional?",tracking=True)
     escalar_prestador = fields.Boolean(string="¿Requiere Escalar a Prestador?",tracking=True)
@@ -74,7 +74,7 @@ class ticket(models.Model):
 
     grupo = fields.Char(related='punto.grupo.name')
     tipo_propiedad = fields.Char(related='punto.tipo_propiedad')
-    cuenta = fields.Many2one('cuenta', string="Cuenta")
+    cuenta = fields.Many2one('cuenta', string="Cuenta", ondelete='restrict')
     punto_id = fields.Integer(related='punto.id', string="Punto ID")
     prestador = fields.Char(related='cuenta.prestador_servicio')
     dias_totales = fields.Integer('Días hábiles transcurridos')
@@ -85,7 +85,7 @@ class ticket(models.Model):
         'Razón Rechazo',tracking=True
     )
 
-    escalado_a = fields.Many2one('res.partner', string='Escalado a', tracking=True)
+    escalado_a = fields.Many2one('res.partner', string='Escalado a', tracking=True, ondelete='restrict')
     proceso_help = fields.Many2one('proceso', string='Proceso', tracking=True, default=1, ondelete='restrict')
     categoria_help = fields.Many2one('categoria', string='Categoria', tracking=True, ondelete='restrict')
     subcategoria_help = fields.Many2one('subcategoria', string='Sub Categoria', tracking=True, ondelete='restrict')

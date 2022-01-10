@@ -6,10 +6,10 @@ class Prorrogas(models.Model):
     _description ='Prorrogas'
 
     name = fields.Char(string="Nombre")
-    contrato = fields.Many2one('contratos.principal',string='Contrato')
+    contrato = fields.Many2one('contratos.principal',string='Contrato', ondelete='restrict')
     fecha_inicio = fields.Date(string='Fecha Inicio')
     fecha_fin = fields.Date(string='Fecha Final')
-    responsable = fields.Many2one('res.users', string='Responsable')
+    responsable = fields.Many2one('res.users', string='Responsable', ondelete='restrict')
     valor = fields.Monetary(string='Valor', currency_field='moneda')
 
     def _default_currency(self):

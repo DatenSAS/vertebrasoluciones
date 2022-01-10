@@ -11,7 +11,7 @@ class Contratos_Principal(models.Model):
     objeto = fields.Text(string = 'Objeto')
     fecha_inicio =fields.Date(string = 'Fecha de Inicio')
     fecha_final = fields.Date(string='Fecha Final')
-    etapas = fields.Many2one('etapas', string='Etapas', group_expand='_read_group_stage_ids', default = 1)
+    etapas = fields.Many2one('etapas', string='Etapas', group_expand='_read_group_stage_ids', default = 1, ondelete='restrict')
 
     @api.model
     def _read_group_stage_ids(self,stages,domain,order):
@@ -23,8 +23,8 @@ class Contratos_Principal(models.Model):
         [('normal', 'En Progreso'), ('done', 'Hecho'),
          ('blocked','Bloqueada')]
     )
-    cliente = fields.Many2one('res.partner', string='Cliente')
-    responsable = fields.Many2one('res.users',string='Responsable')
+    cliente = fields.Many2one('res.partner', string='Cliente', ondelete='restrict')
+    responsable = fields.Many2one('res.users',string='Responsable', ondelete='restrict')
     valor_inicial =fields.Monetary(string='Valor Inicial', currency_field='moneda')
     valor_total = fields.Monetary(string='Valor Total', currency_field='moneda')
     valor_facturado = fields.Monetary(string='Valor Facturado', currency_field='moneda')

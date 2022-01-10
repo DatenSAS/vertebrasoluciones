@@ -6,5 +6,5 @@ class contratos(models.Model):
     _description ='Contratos asociados al flujo de mercados y tarifas'
 
     name = fields.Char(string='Contrato')
-    cliente = fields.Many2one('res.partner', string='Cliente')
+    cliente = fields.Many2one('res.partner', string='Cliente', ondelete='restrict')
     activo = fields.Boolean(string="¿Activo?")

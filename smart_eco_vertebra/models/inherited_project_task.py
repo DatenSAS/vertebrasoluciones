@@ -6,8 +6,8 @@ class project_task(models.Model):
     _inherit = 'project.task'
 
     cliente_id = fields.Integer(related='partner_id.id')
-    punto = fields.Many2one('punto',string='Punto',tracking=True)
-    contrato = fields.Many2one('contratos', string='Contrato', tracking=True)
+    punto = fields.Many2one('punto',string='Punto',tracking=True, ondelete='restrict')
+    contrato = fields.Many2one('contratos', string='Contrato', tracking=True, ondelete='restrict')
     url = fields.Char(string='URL',tracking=True)
     adjunto = fields.Binary(string='Adjunto',tracking=True)
     nombre_adjunto = fields.Char(string='Nombre Adjunto')
@@ -16,7 +16,7 @@ class project_task(models.Model):
         'Tipo',
         related='project_id.tipo'
     )
-    cuenta = fields.Many2one('cuenta', string='Cuenta',tracking=True)
+    cuenta = fields.Many2one('cuenta', string='Cuenta',tracking=True, ondelete='restrict')
     grupo = fields.Char(related='punto.grupo.name')
     ciudad = fields.Char(related='punto.ciudad')
     servicio = fields.Char(related='cuenta.servicio')
@@ -26,7 +26,7 @@ class project_task(models.Model):
     fecha_visita = fields.Date(string='Fecha de Visita',tracking=True)
     fecha_cambio = fields.Date(string='Fecha de Cambio',tracking=True)
     registro_xm_date = fields.Date(string = "Registro XM",tracking=True)
-    cuenta_nueva = fields.Many2one('cuenta', string='Cuenta Nueva',tracking=True)
+    cuenta_nueva = fields.Many2one('cuenta', string='Cuenta Nueva',tracking=True, ondelete='restrict')
     paz_salvo = fields.Boolean(string='Paz y Salvo',tracking=True)
     fecha_inicio = fields.Date(string='Fecha Inicio',tracking=True)
     fecha_final = fields.Date(string='Fecha Final',tracking=True)
@@ -43,8 +43,8 @@ class project_task(models.Model):
     prestador_aseo_check = fields.Boolean(string='Prestador Aseo',tracking=True)
     prestador_ap_check = fields.Boolean(string='Prestador AP',tracking=True)
 
-    prestador_aseo = fields.Many2one('res.partner', string='Empresa Aseo',tracking=True)
-    prestador_ap = fields.Many2one('res.partner', string='Empresa AP',tracking=True)
+    prestador_aseo = fields.Many2one('res.partner', string='Empresa Aseo',tracking=True, ondelete='restrict')
+    prestador_ap = fields.Many2one('res.partner', string='Empresa AP',tracking=True, ondelete='restrict')
     continuidad_serv = fields.Selection(
         [('Proceso Pendiente', 'Proceso Pendiente'), ('Cobros OK', 'Cobros OK'),
          ('Cobros con Reclamación', 'Cobros con Reclamación'),
@@ -118,27 +118,27 @@ class project_task(models.Model):
         [('Trifásica', 'Trifásica'),('Bifásica', 'Bifásica'), ('Monofásica', 'Monofásica')],
         'Tipo de Instalación',tracking=True
     )
-    equipo = fields.Many2one('stock.production.lot', string="Número de Equipo")
+    equipo = fields.Many2one('stock.production.lot', string="Número de Equipo", ondelete='restrict')
     nivel_cel = fields.Selection(
         [('Mala', 'Mala'), ('Buena', 'Buena'), ('Excelente', 'Excelente')],
         'Nivel de Señal', tracking=True
     )
-    sim_card = fields.Many2one('stock.production.lot', string="SIM")
+    sim_card = fields.Many2one('stock.production.lot', string="SIM", ondelete='restrict')
     operador = fields.Selection(
         [('Claro', 'Claro'),('Movistar', 'Movistar'), ('Tigo', 'Tigo')],
         'Operador',tracking=True
     )
     observaciones_ins = fields.Text(string="Observaciones",tracking=True)
-    tec_vis = fields.Many2one('res.partner', string="Inspector",tracking=True)
-    tec_ins = fields.Many2one('res.partner', string="Técnico Instalador",tracking=True)
+    tec_vis = fields.Many2one('res.partner', string="Inspector",tracking=True, ondelete='restrict')
+    tec_ins = fields.Many2one('res.partner', string="Técnico Instalador",tracking=True, ondelete='restrict')
 
     medidas = fields.Binary(string='Registro Medidas')
     nombre_medidas = fields.Char(string='Nombre Medidas')
 
     fecha_recepcion_doc = fields.Date(string='Fecha de Recepción del documento',tracking=True)
-    task_ticket = fields.Many2one('helpdesk.ticket', string="Ticket Generado",tracking=True)
-    task_ticket_ap = fields.Many2one('helpdesk.ticket', string="Ticket Generado AP", tracking=True)
-    task_ticket_aseo = fields.Many2one('helpdesk.ticket', string="Ticket Generado Aseo", tracking=True)
+    task_ticket = fields.Many2one('helpdesk.ticket', string="Ticket Generado",tracking=True, ondelete='restrict')
+    task_ticket_ap = fields.Many2one('helpdesk.ticket', string="Ticket Generado AP", tracking=True, ondelete='restrict')
+    task_ticket_aseo = fields.Many2one('helpdesk.ticket', string="Ticket Generado Aseo", tracking=True, ondelete='restrict')
 
     cancelado = fields.Selection(
         [('Solicitud de Cliente', 'Solicitud de Cliente'),('Cierre de Punto', 'Cierre de Punto'),

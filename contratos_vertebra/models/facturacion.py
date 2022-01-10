@@ -7,11 +7,11 @@ class Facturacion(models.Model):
     _description ='Facturación Contratos'
 
     name = fields.Char(string="Nombre")
-    contrato = fields.Many2one('contratos.principal', string='Contrato')
+    contrato = fields.Many2one('contratos.principal', string='Contrato', ondelete='restrict')
     fecha_emision = fields.Date(string='Fecha de Emision')
     fecha_vencimiento = fields.Date(string='Fecha de Vencimiento')
     concepto = fields.Text(string='Concepto')
-    etapas = fields.Many2one('etapas.facturacion', string='Etapas', group_expand='_read_group_stage_ids', default=1)
+    etapas = fields.Many2one('etapas.facturacion', string='Etapas', group_expand='_read_group_stage_ids', default=1, ondelete='restrict')
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
@@ -22,7 +22,7 @@ class Facturacion(models.Model):
         [('normal', 'En Progreso'), ('done', 'Hecho'),
          ('blocked', 'Bloqueada')]
     )
-    responsable = fields.Many2one('res.users', string='Responsable')
+    responsable = fields.Many2one('res.users', string='Responsable', ondelete='restrict')
     valor = fields.Monetary(string='Valor', currency_field='moneda')
 
     def _default_currency(self):
