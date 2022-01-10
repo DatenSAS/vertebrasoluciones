@@ -86,9 +86,9 @@ class ticket(models.Model):
     )
 
     escalado_a = fields.Many2one('res.partner', string='Escalado a', tracking=True)
-    proceso_help = fields.Many2one('proceso', string='Proceso', tracking=True, default=1)
-    categoria_help = fields.Many2one('categoria', string='Categoria', tracking=True)
-    subcategoria_help = fields.Many2one('subcategoria', string='Sub Categoria', tracking=True)
+    proceso_help = fields.Many2one('proceso', string='Proceso', tracking=True, default=1, ondelete='restrict')
+    categoria_help = fields.Many2one('categoria', string='Categoria', tracking=True, ondelete='restrict')
+    subcategoria_help = fields.Many2one('subcategoria', string='Sub Categoria', tracking=True, ondelete='restrict')
 
     proceso_id = fields.Integer(related='proceso_help.id', string="Proceso ID")
     categoria_id = fields.Integer(related='categoria_help.id', string="Categoria ID")
@@ -179,11 +179,11 @@ class ticket(models.Model):
         _description = 'Categoria asociada a Reclamaciones'
 
         name = fields.Char(string='Categoria')
-        proceso_id = fields.Many2one('proceso', string='Proceso',tracking=True)
+        proceso_id = fields.Many2one('proceso', string='Proceso',tracking=True, ondelete='restrict')
 
     class subcategoria(models.Model):
         _name = 'subcategoria'
         _description = 'Subcategoria asociada a Reclamaciones'
 
         name = fields.Char(string='Subcategoria')
-        categoria = fields.Many2one('categoria', string='Categoria',tracking=True)
+        categoria = fields.Many2one('categoria', string='Categoria',tracking=True, ondelete='restrict')
