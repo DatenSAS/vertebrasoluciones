@@ -16,6 +16,7 @@ class Gastos(models.Model):
          'Motivo del Gasto')
     secuencia = fields.Integer()
     valor = fields.Monetary(string='Valor', currency_field='moneda')
+    active = fields.Boolean(string="Active", default=True)
 
     def _default_currency(self):
         return self.env['res.currency'].search([('name', '=', 'COP')], limit=1).id

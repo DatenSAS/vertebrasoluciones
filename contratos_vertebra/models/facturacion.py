@@ -12,6 +12,7 @@ class Facturacion(models.Model):
     fecha_vencimiento = fields.Date(string='Fecha de Vencimiento')
     concepto = fields.Text(string='Concepto')
     etapas = fields.Many2one('etapas.facturacion', string='Etapas', group_expand='_read_group_stage_ids', default=1, ondelete='restrict')
+    active = fields.Boolean(string="Active", default=True)
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):

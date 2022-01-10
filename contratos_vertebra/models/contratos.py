@@ -12,6 +12,7 @@ class Contratos_Principal(models.Model):
     fecha_inicio =fields.Date(string = 'Fecha de Inicio')
     fecha_final = fields.Date(string='Fecha Final')
     etapas = fields.Many2one('etapas', string='Etapas', group_expand='_read_group_stage_ids', default = 1, ondelete='restrict')
+    active = fields.Boolean(string="Active", default=True)
 
     @api.model
     def _read_group_stage_ids(self,stages,domain,order):

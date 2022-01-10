@@ -173,6 +173,7 @@ class ticket(models.Model):
         _description = 'Proceso asociado a Reclamaciones'
 
         name = fields.Char(string='Proceso')
+        active = fields.Boolean(string="Active", default=True)
 
     class categoria(models.Model):
         _name = 'categoria'
@@ -180,6 +181,7 @@ class ticket(models.Model):
 
         name = fields.Char(string='Categoria')
         proceso_id = fields.Many2one('proceso', string='Proceso',tracking=True, ondelete='restrict')
+        active = fields.Boolean(string="Active", default=True)
 
     class subcategoria(models.Model):
         _name = 'subcategoria'
@@ -187,3 +189,4 @@ class ticket(models.Model):
 
         name = fields.Char(string='Subcategoria')
         categoria = fields.Many2one('categoria', string='Categoria',tracking=True, ondelete='restrict')
+        active = fields.Boolean(string="Active", default=True)

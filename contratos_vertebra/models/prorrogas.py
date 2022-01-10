@@ -11,6 +11,7 @@ class Prorrogas(models.Model):
     fecha_fin = fields.Date(string='Fecha Final')
     responsable = fields.Many2one('res.users', string='Responsable', ondelete='restrict')
     valor = fields.Monetary(string='Valor', currency_field='moneda')
+    active = fields.Boolean(string="Active", default=True)
 
     def _default_currency(self):
         return self.env['res.currency'].search([('name', '=', 'COP')], limit=1).id
