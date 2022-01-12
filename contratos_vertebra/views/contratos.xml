@@ -69,6 +69,7 @@
                                 <field name="pct_facturado" readonly="1"/>
                                 <field name="gastos" readonly="1"/>
                                 <field name="moneda" invisible="1"/>
+                                <field name="active" invisible="1"/>
                             </group>
                         </group>
                         <xpath expr="//form[1]/sheet[1]/group[1]" position="after">

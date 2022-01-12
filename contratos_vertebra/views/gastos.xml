@@ -30,6 +30,7 @@
                                 <field name="contrato" domain="[('etapas','=',2)]" required="1"/>
                                 <field name="tercero" domain="[('category_id','=',4)]"/>
                                 <field name="fecha"/>
+                                <field name="active" invisible="1"/>
                             </group>
                             <group>
                                 <field name="motivo"/>
