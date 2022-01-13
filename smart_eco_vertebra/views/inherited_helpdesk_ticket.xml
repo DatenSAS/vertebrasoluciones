@@ -147,11 +147,45 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="helpdesk_categoria_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.categoria.form</field>
+        <field name="model">categoria</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="proceso_id"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
     <record id='subcategoria_action' model='ir.actions.act_window'>
         <field name="name">Sub Categoria</field>
         <field name="res_model">subcategoria</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <record id="helpdesk_subcategoria_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.subcategoria.form</field>
+        <field name="model">subcategoria</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="categoria"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
 
     <record id="inherited_helpdesk_ticket_form_2" model="ir.ui.view">
       <field name="name">helpdesk.ticket.form2</field>
